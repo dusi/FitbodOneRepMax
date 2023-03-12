@@ -29,7 +29,7 @@ extension OneRepMaxListData: OneRepMaxListDataInterface {
     func task() {
         Task {
             do {
-                let _ = await dataStore.exercises
+                let _ = try await dataStore.exercises
                 self.state = .list
             } catch {
                 self.state = .error
@@ -66,7 +66,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         OneRepMaxList(
             model: OneRepMaxListData(
-                dataStore: DataStore(),
+                dataStore: DataStore(
+                    parser: Parser()
+                ),
                 state: .list
             )
         )

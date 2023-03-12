@@ -6,7 +6,9 @@ struct OneRepMaxApp: App {
         WindowGroup {
             OneRepMaxList(
                 model: OneRepMaxListData(
-                    dataStore: DataStore()
+                    dataStore: DataStore(
+                        parser: Parser()
+                    )
                 )
             )
         }

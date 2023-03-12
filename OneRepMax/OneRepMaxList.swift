@@ -67,7 +67,9 @@ struct ContentView_Previews: PreviewProvider {
         OneRepMaxList(
             model: OneRepMaxListData(
                 dataStore: DataStore(
-                    parser: Parser()
+                    parser: Parser(
+                        dateFormatter: DateFormatter.default()
+                    )
                 ),
                 state: .list
             )

@@ -14,6 +14,7 @@
 		E962416C29BD9777005857E4 /* OneRepMaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962416B29BD9777005857E4 /* OneRepMaxTests.swift */; };
 		E962417429BE6734005857E4 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962417329BE6734005857E4 /* DataStore.swift */; };
 		E962417629BE6946005857E4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962417529BE6946005857E4 /* Model.swift */; };
+		E962417A29BE73A9005857E4 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962417929BE73A9005857E4 /* Bundle+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		E962417229BD97AF005857E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E962417329BE6734005857E4 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E962417529BE6946005857E4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E962417929BE73A9005857E4 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				E962415729BD972F005857E4 /* OneRepMaxApp.swift */,
 				E962415929BD972F005857E4 /* OneRepMaxList.swift */,
 				E962417329BE6734005857E4 /* DataStore.swift */,
+				E962417929BE73A9005857E4 /* Bundle+Extensions.swift */,
 				E962417529BE6946005857E4 /* Model.swift */,
 				E962415B29BD972F005857E4 /* Assets.xcassets */,
 				E962415D29BD972F005857E4 /* Preview Content */,
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E962415A29BD972F005857E4 /* OneRepMaxList.swift in Sources */,
+				E962417A29BE73A9005857E4 /* Bundle+Extensions.swift in Sources */,
 				E962417429BE6734005857E4 /* DataStore.swift in Sources */,
 				E962415829BD972F005857E4 /* OneRepMaxApp.swift in Sources */,
 				E962417629BE6946005857E4 /* Model.swift in Sources */,

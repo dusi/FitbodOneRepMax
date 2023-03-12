@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E962415829BD972F005857E4 /* OneRepMaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962415729BD972F005857E4 /* OneRepMaxApp.swift */; };
-		E962415A29BD972F005857E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962415929BD972F005857E4 /* ContentView.swift */; };
+		E962415A29BD972F005857E4 /* OneRepMaxList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962415929BD972F005857E4 /* OneRepMaxList.swift */; };
 		E962415C29BD972F005857E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E962415B29BD972F005857E4 /* Assets.xcassets */; };
 		E962415F29BD972F005857E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E962415E29BD972F005857E4 /* Preview Assets.xcassets */; };
 		E962416C29BD9777005857E4 /* OneRepMaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962416B29BD9777005857E4 /* OneRepMaxTests.swift */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		E962415429BD972F005857E4 /* OneRepMax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneRepMax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E962415729BD972F005857E4 /* OneRepMaxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxApp.swift; sourceTree = "<group>"; };
-		E962415929BD972F005857E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E962415929BD972F005857E4 /* OneRepMaxList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxList.swift; sourceTree = "<group>"; };
 		E962415B29BD972F005857E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E962415E29BD972F005857E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E962416929BD9777005857E4 /* OneRepMaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneRepMaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +76,7 @@
 			children = (
 				E962417229BD97AF005857E4 /* Info.plist */,
 				E962415729BD972F005857E4 /* OneRepMaxApp.swift */,
-				E962415929BD972F005857E4 /* ContentView.swift */,
+				E962415929BD972F005857E4 /* OneRepMaxList.swift */,
 				E962415B29BD972F005857E4 /* Assets.xcassets */,
 				E962415D29BD972F005857E4 /* Preview Content */,
 			);
@@ -199,7 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E962415A29BD972F005857E4 /* ContentView.swift in Sources */,
+				E962415A29BD972F005857E4 /* OneRepMaxList.swift in Sources */,
 				E962415829BD972F005857E4 /* OneRepMaxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

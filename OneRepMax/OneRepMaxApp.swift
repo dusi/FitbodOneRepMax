@@ -4,7 +4,7 @@ import SwiftUI
 struct OneRepMaxApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OneRepMaxList()
         }
     }
 }

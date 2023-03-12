@@ -4,7 +4,11 @@ import SwiftUI
 struct OneRepMaxApp: App {
     var body: some Scene {
         WindowGroup {
-            OneRepMaxList(model: OneRepMaxListData())
+            OneRepMaxList(
+                model: OneRepMaxListData(
+                    dataStore: DataStore()
+                )
+            )
         }
     }
 }

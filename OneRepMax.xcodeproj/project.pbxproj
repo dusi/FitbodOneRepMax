@@ -28,6 +28,7 @@
 		E981B9E229BFC2B10089D173 /* Double+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E129BFC2B10089D173 /* Double+ExtensionsTests.swift */; };
 		E981B9E429BFC6A20089D173 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E329BFC6A20089D173 /* ConstantsTests.swift */; };
 		E981B9E629BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */; };
+		E981B9E829BFCA1E0089D173 /* Bundle+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E981B9E129BFC2B10089D173 /* Double+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		E981B9E329BFC6A20089D173 /* ConstantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ExtensionsTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				E981B9E129BFC2B10089D173 /* Double+ExtensionsTests.swift */,
 				E981B9E329BFC6A20089D173 /* ConstantsTests.swift */,
 				E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */,
+				E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */,
 			);
 			path = OneRepMaxTests;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				E962418729BEBBB1005857E4 /* ModelTests.swift in Sources */,
 				E962418529BEA433005857E4 /* DataProviderTests.swift in Sources */,
 				E962416C29BD9777005857E4 /* ParserTests.swift in Sources */,
+				E981B9E829BFCA1E0089D173 /* Bundle+ExtensionsTests.swift in Sources */,
 				E981B9E629BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift in Sources */,
 				E981B9E429BFC6A20089D173 /* ConstantsTests.swift in Sources */,
 			);

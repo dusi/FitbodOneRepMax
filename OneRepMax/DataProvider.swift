@@ -41,7 +41,7 @@ extension DataProvider: DataProviderInterface {
             // ]
             let exercisesOrderedByNameAndDate = exercisesOrderedByName.mapValues { OrderedDictionary(grouping: $0, by: \.date) }
             
-            return exercisesOrderedByNameAndDate.elements.map { (name, exercisesOrderedByDate) in
+            return exercisesOrderedByNameAndDate.elements.compactMap { (name, exercisesOrderedByDate) in
                 // Get the exercise with one-rep-max for each day
                 let oneRepMaxExercises = exercisesOrderedByDate.compactMapValues { exercises in
                     exercises.max { e1, e2 in e1.oneRepMax < e2.oneRepMax }
@@ -50,8 +50,16 @@ extension DataProvider: DataProviderInterface {
                 // Sort exercises by date in an ascending order
                 let oneRepMaxExercisesSortedAscending = oneRepMaxExercises.values.elements.sorted { e1, e2 in e1.date < e2.date }
                 
+                // Get the latest one rep max
+                guard let latestOneRepMax = oneRepMaxExercisesSortedAscending.last?.oneRepMax
+                else { return nil }
+                
                 // Map data
-                return OneRepMax(exercises: oneRepMaxExercisesSortedAscending, name: name)
+                return OneRepMax(
+                    exercises: oneRepMaxExercisesSortedAscending,
+                    name: name,
+                    latestOneRepMax: latestOneRepMax
+                )
             }
         }
     }

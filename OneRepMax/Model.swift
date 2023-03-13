@@ -13,3 +13,8 @@ extension Exercise {
         Double(weight) * (36 / (37.0 - Double(reps)))
     }
 }
+
+struct OneRepMax {
+    let exercises: [Exercise]
+    let name: String
+}

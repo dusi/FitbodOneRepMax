@@ -54,7 +54,11 @@ struct OneRepMaxList: View {
                 case .list(let oneRepMaxes):
                     List {
                         ForEach(oneRepMaxes) { oneRepMax in
-                            OneRepMaxRow(oneRepMax: oneRepMax)
+                            NavigationLink {
+                                
+                            } label: {
+                                OneRepMaxRow(oneRepMax: oneRepMax)
+                            }
                         }
                     }
                     .listStyle(.plain)

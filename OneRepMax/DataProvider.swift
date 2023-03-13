@@ -54,11 +54,15 @@ extension DataProvider: DataProviderInterface {
                 guard let latestOneRepMax = oneRepMaxExercisesSortedAscending.last?.oneRepMax
                 else { return nil }
                 
+                // Round one rep max to the nearest of the smallest weight increment multiplied by two for equal distribution
+                let minWeightIncrement = Constants.weightIncrementsDescending[Constants.weightIncrementsDescending.count - 1]
+                let latestOneRepMaxRounded = latestOneRepMax.round(toNearest: 2 * minWeightIncrement)
+                
                 // Map data
                 return OneRepMax(
                     exercises: oneRepMaxExercisesSortedAscending,
                     name: name,
-                    latestOneRepMax: latestOneRepMax
+                    latestOneRepMax: latestOneRepMaxRounded
                 )
             }
         }

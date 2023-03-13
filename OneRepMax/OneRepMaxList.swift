@@ -8,7 +8,7 @@ protocol OneRepMaxListDataInterface {
 class OneRepMaxListData: ObservableObject {
     enum State {
         case error
-        case list
+        case list([OneRepMax])
         case loading
     }
 
@@ -30,8 +30,7 @@ extension OneRepMaxListData: OneRepMaxListDataInterface {
         Task {
             do {
                 let oneRepMaxes = try await dataProvider.oneRepMaxes
-                dump(oneRepMaxes, maxDepth: 3)
-                self.state = .list
+                self.state = .list(oneRepMaxes)
             } catch {
                 self.state = .error
             }
@@ -47,15 +46,23 @@ struct OneRepMaxList: View {
     }
     
     var body: some View {
-        Group {
-            switch self.model.state {
-            case .error:
-                Text("Error")
-            case .list:
-                Text("List")
-            case .loading:
-                Text("Loading..")
+        NavigationStack {
+            Group {
+                switch self.model.state {
+                case .error:
+                    Text("Error")
+                case .list(let oneRepMaxes):
+                    List {
+                        ForEach(oneRepMaxes) { oneRepMax in
+                            OneRepMaxRow(oneRepMax: oneRepMax)
+                        }
+                    }
+                    .listStyle(.plain)
+                case .loading:
+                    Text("Loading..")
+                }
             }
+            .navigationTitle("One Rep Max")
         }
         .task {
             self.model.task()
@@ -63,7 +70,7 @@ struct OneRepMaxList: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct OneRepMaxList_Previews: PreviewProvider {
     static var previews: some View {
         OneRepMaxList(
             model: OneRepMaxListData(
@@ -74,7 +81,7 @@ struct ContentView_Previews: PreviewProvider {
                         )
                     )
                 ),
-                state: .list
+                state: .loading
             )
         )
     }

@@ -22,6 +22,7 @@
 		E962418329BEA357005857E4 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962418229BEA357005857E4 /* DataProvider.swift */; };
 		E962418529BEA433005857E4 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962418429BEA433005857E4 /* DataProviderTests.swift */; };
 		E962418729BEBBB1005857E4 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962418629BEBBB1005857E4 /* ModelTests.swift */; };
+		E981B9DC29BFA3BD0089D173 /* OneRepMaxRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E962418229BEA357005857E4 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		E962418429BEA433005857E4 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		E962418629BEBBB1005857E4 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				E962417229BD97AF005857E4 /* Info.plist */,
 				E962415729BD972F005857E4 /* OneRepMaxApp.swift */,
 				E962415929BD972F005857E4 /* OneRepMaxList.swift */,
+				E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */,
 				E962417329BE6734005857E4 /* DataStore.swift */,
 				E962418229BEA357005857E4 /* DataProvider.swift */,
 				E962417929BE73A9005857E4 /* Bundle+Extensions.swift */,
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E981B9DC29BFA3BD0089D173 /* OneRepMaxRow.swift in Sources */,
 				E962415A29BD972F005857E4 /* OneRepMaxList.swift in Sources */,
 				E962417A29BE73A9005857E4 /* Bundle+Extensions.swift in Sources */,
 				E962418329BEA357005857E4 /* DataProvider.swift in Sources */,

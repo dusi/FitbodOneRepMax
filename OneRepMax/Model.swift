@@ -21,4 +21,22 @@ struct OneRepMax: Identifiable {
     let latestOneRepMax: Double
 }
 
+// MARK: - Mocks
+
+extension Exercise {
+    static let mock = Self(
+        date: Date(),
+        name: "Deadlift",
+        reps: 10,
+        sets: 1,
+        weight: 265
+    )
+}
+
+extension OneRepMax {
+    static let mock = OneRepMax(
+        exercises: [.mock],
+        name: "Deadlift",
+        latestOneRepMax: Exercise.mock.oneRepMax
+    )
 }

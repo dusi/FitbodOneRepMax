@@ -19,6 +19,7 @@
 		E962417C29BE75DA005857E4 /* sample1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E962417B29BE75DA005857E4 /* sample1.txt */; };
 		E962417E29BE810C005857E4 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962417D29BE810C005857E4 /* DateFormatter+Extensions.swift */; };
 		E962418129BE81E9005857E4 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = E962418029BE81E9005857E4 /* OrderedCollections */; };
+		E962418729BEBBB1005857E4 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E962418629BEBBB1005857E4 /* ModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		E962417929BE73A9005857E4 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		E962417B29BE75DA005857E4 /* sample1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample1.txt; sourceTree = "<group>"; };
 		E962417D29BE810C005857E4 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		E962418629BEBBB1005857E4 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E962416B29BD9777005857E4 /* ParserTests.swift */,
+				E962418629BEBBB1005857E4 /* ModelTests.swift */,
 			);
 			path = OneRepMaxTests;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E962418729BEBBB1005857E4 /* ModelTests.swift in Sources */,
 				E962416C29BD9777005857E4 /* ParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,13 +14,13 @@ class OneRepMaxListData: ObservableObject {
 
     @Published var state: State
     
-    private let dataStore: DataStoreInterface
+    private let dataProvider: DataProviderInterface
     
     init(
-        dataStore: DataStoreInterface,
+        dataProvider: DataProviderInterface,
         state: State = .loading
     ) {
-        self.dataStore = dataStore
+        self.dataProvider = dataProvider
         self.state = state
     }
 }
@@ -29,7 +29,8 @@ extension OneRepMaxListData: OneRepMaxListDataInterface {
     func task() {
         Task {
             do {
-                let _ = try await dataStore.exercises
+                let oneRepMaxes = try await dataProvider.oneRepMaxes
+                dump(oneRepMaxes, maxDepth: 3)
                 self.state = .list
             } catch {
                 self.state = .error
@@ -66,9 +67,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         OneRepMaxList(
             model: OneRepMaxListData(
-                dataStore: DataStore(
-                    parser: Parser(
-                        dateFormatter: DateFormatter.default()
+                dataProvider: DataProvider(
+                    dataStore: DataStore(
+                        parser: Parser(
+                            dateFormatter: DateFormatter.default()
+                        )
                     )
                 ),
                 state: .list

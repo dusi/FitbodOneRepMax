@@ -14,7 +14,11 @@ extension Exercise {
     }
 }
 
-struct OneRepMax {
+struct OneRepMax: Identifiable {
+    let id = UUID()
     let exercises: [Exercise]
     let name: String
+    let latestOneRepMax: Double
+}
+
 }

@@ -1,6 +1,7 @@
 import Foundation
 
-struct Exercise {
+struct Exercise: Identifiable {
+    let id: UUID = UUID()
     let date: Date
     let name: String
     let reps: Int
@@ -15,7 +16,7 @@ extension Exercise {
 }
 
 struct OneRepMax: Identifiable {
-    let id = UUID()
+    let id: UUID = UUID()
     let exercises: [Exercise]
     let name: String
     let latestOneRepMax: Double

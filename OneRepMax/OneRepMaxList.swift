@@ -67,6 +67,7 @@ struct OneRepMaxList: View {
                 }
             }
             .navigationTitle("One Rep Max")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             self.model.task()

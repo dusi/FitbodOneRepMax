@@ -132,7 +132,7 @@ struct OneRepMaxList_Previews: PreviewProvider {
             model: OneRepMaxListModel(
                 dataStore: DataStore(
                     parser: Parser(
-                        dateFormatter: DateFormatter.default()
+                        dateFormatter: DateFormatter.input()
                     )
                 ),
                 state: .loading

@@ -8,7 +8,7 @@ struct OneRepMaxApp: App {
                 model: OneRepMaxListModel(
                     dataStore: DataStore(
                         parser: Parser(
-                            dateFormatter: DateFormatter.default()
+                            dateFormatter: DateFormatter.input()
                         )
                     )
                 )

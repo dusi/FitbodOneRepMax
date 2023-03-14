@@ -5,7 +5,7 @@ protocol OneRepMaxListDataInterface {
 }
 
 @MainActor
-class OneRepMaxListData: ObservableObject {
+class OneRepMaxListModel: ObservableObject {
     enum State {
         case error
         case list([OneRepMax])
@@ -25,7 +25,7 @@ class OneRepMaxListData: ObservableObject {
     }
 }
 
-extension OneRepMaxListData: OneRepMaxListDataInterface {
+extension OneRepMaxListModel: OneRepMaxListDataInterface {
     func task() {
         Task {
             do {
@@ -39,9 +39,9 @@ extension OneRepMaxListData: OneRepMaxListDataInterface {
 }
 
 struct OneRepMaxList: View {
-    @ObservedObject private var model: OneRepMaxListData
+    @ObservedObject private var model: OneRepMaxListModel
     
-    init(model: OneRepMaxListData) {
+    init(model: OneRepMaxListModel) {
         self.model = model
     }
     
@@ -77,7 +77,7 @@ struct OneRepMaxList: View {
 struct OneRepMaxList_Previews: PreviewProvider {
     static var previews: some View {
         OneRepMaxList(
-            model: OneRepMaxListData(
+            model: OneRepMaxListModel(
                 dataProvider: DataProvider(
                     dataStore: DataStore(
                         parser: Parser(

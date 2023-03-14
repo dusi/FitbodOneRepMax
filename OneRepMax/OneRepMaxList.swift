@@ -37,12 +37,14 @@ extension OneRepMaxListModel {
             
             // Example:
             // [
-            //      key: "Back Squat", value: [
+            //      key: "Back Squat",
+            //      value: [
             //          key: "date1", value: [Exercise],
             //          key: "date2", value: [Exercise],
             //          ...
             //      ],
-            //      key: "Deadlift", value: [
+            //      key: "Deadlift",
+            //      value: [
             //          key: "date3", value: [Exercise],
             //          key: "date4", value: [Exercise],
             //      ],
@@ -51,12 +53,12 @@ extension OneRepMaxListModel {
             let exercisesOrderedByNameAndDate = exercisesOrderedByName.mapValues { OrderedDictionary(grouping: $0, by: \.date) }
             
             return exercisesOrderedByNameAndDate.elements.compactMap { (name, exercisesOrderedByDate) in
-                // Get the exercise with one-rep-max for each day
+                // Get only the exercise with maximum one rep max for each of the day groups
                 let oneRepMaxExercises = exercisesOrderedByDate.compactMapValues { exercises in
                     exercises.max { e1, e2 in e1.oneRepMax < e2.oneRepMax }
                 }
                 
-                // Sort exercises by date in an ascending order
+                // Sort all the maximum one rep max exercises by date in an ascending order
                 let oneRepMaxExercisesSortedAscending = oneRepMaxExercises.values.elements.sorted { e1, e2 in e1.date < e2.date }
                 
                 // Get the latest one rep max
@@ -70,7 +72,7 @@ extension OneRepMaxListModel {
                     latestOneRepMax: latestOneRepMax
                 )
             }
-            // Sort by name lexicographically
+            // Sort one max rep array by name lexicographically
             .sorted { $0.name < $1.name }
         }
     }

@@ -1,8 +1,5 @@
+import OrderedCollections
 import SwiftUI
-
-protocol OneRepMaxListDataInterface {
-    func task()
-}
 
 @MainActor
 class OneRepMaxListModel: ObservableObject {
@@ -14,22 +11,76 @@ class OneRepMaxListModel: ObservableObject {
 
     @Published var state: State
     
-    private let dataProvider: DataProviderInterface
+    private let dataStore: DataStoreInterface
     
     init(
-        dataProvider: DataProviderInterface,
+        dataStore: DataStoreInterface,
         state: State = .loading
     ) {
-        self.dataProvider = dataProvider
+        self.dataStore = dataStore
         self.state = state
     }
 }
 
-extension OneRepMaxListModel: OneRepMaxListDataInterface {
+extension OneRepMaxListModel {
+    var oneRepMaxes: [OneRepMax] {
+        get async throws {
+            let exercises = try await dataStore.exercises
+            
+            // Example:
+            // [
+            //      key: "Back Squat", value: [Exercise],
+            //      key: "Deadlift", value: [Exercise],
+            //      ...
+            // ]
+            let exercisesOrderedByName = OrderedDictionary(grouping: exercises, by: \.name)
+            
+            // Example:
+            // [
+            //      key: "Back Squat", value: [
+            //          key: "date1", value: [Exercise],
+            //          key: "date2", value: [Exercise],
+            //          ...
+            //      ],
+            //      key: "Deadlift", value: [
+            //          key: "date3", value: [Exercise],
+            //          key: "date4", value: [Exercise],
+            //      ],
+            //      ...
+            // ]
+            let exercisesOrderedByNameAndDate = exercisesOrderedByName.mapValues { OrderedDictionary(grouping: $0, by: \.date) }
+            
+            return exercisesOrderedByNameAndDate.elements.compactMap { (name, exercisesOrderedByDate) in
+                // Get the exercise with one-rep-max for each day
+                let oneRepMaxExercises = exercisesOrderedByDate.compactMapValues { exercises in
+                    exercises.max { e1, e2 in e1.oneRepMax < e2.oneRepMax }
+                }
+                
+                // Sort exercises by date in an ascending order
+                let oneRepMaxExercisesSortedAscending = oneRepMaxExercises.values.elements.sorted { e1, e2 in e1.date < e2.date }
+                
+                // Get the latest one rep max
+                guard let latestOneRepMax = oneRepMaxExercisesSortedAscending.last?.oneRepMax
+                else { return nil }
+                
+                // Round one rep max to the nearest of the smallest weight increment multiplied by two for equal distribution
+                let minWeightIncrement = Constants.weightIncrementsDescending[Constants.weightIncrementsDescending.count - 1]
+                let latestOneRepMaxRounded = latestOneRepMax.round(toNearest: 2 * minWeightIncrement)
+                
+                // Map data
+                return OneRepMax(
+                    exercises: oneRepMaxExercisesSortedAscending,
+                    name: name,
+                    latestOneRepMax: latestOneRepMaxRounded
+                )
+            }
+        }
+    }
+    
     func task() {
         Task {
             do {
-                let oneRepMaxes = try await dataProvider.oneRepMaxes
+                let oneRepMaxes = try await self.oneRepMaxes
                 self.state = .list(oneRepMaxes)
             } catch {
                 self.state = .error
@@ -79,11 +130,9 @@ struct OneRepMaxList_Previews: PreviewProvider {
     static var previews: some View {
         OneRepMaxList(
             model: OneRepMaxListModel(
-                dataProvider: DataProvider(
-                    dataStore: DataStore(
-                        parser: Parser(
-                            dateFormatter: DateFormatter.default()
-                        )
+                dataStore: DataStore(
+                    parser: Parser(
+                        dateFormatter: DateFormatter.default()
                     )
                 ),
                 state: .loading

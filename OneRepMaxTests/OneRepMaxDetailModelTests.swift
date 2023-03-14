@@ -20,7 +20,7 @@ final class OneRepMaxDetailModelTests: XCTestCase {
         mockOneRepMax = OneRepMax(
             exercises: mockExercises,
             name: "Deadlift",
-            latestOneRepMax: 100
+            lastExercise: .mock
         )
     }
     

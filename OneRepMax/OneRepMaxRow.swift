@@ -12,7 +12,7 @@ struct OneRepMaxRow: View {
             Text(oneRepMax.name)
                 .font(.title2)
             Spacer()
-            Text(String(format: "%.1f", oneRepMax.latestOneRepMax))
+            Text(String(format: "%.1f", oneRepMax.lastExercise.oneRepMax))
                 .font(.title)
             Text("lbs")
         }

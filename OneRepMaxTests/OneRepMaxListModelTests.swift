@@ -60,14 +60,14 @@ final class OneRepMaxListModelTests: XCTestCase {
         XCTAssertEqual(oneRepMaxes[0].exercises[1].reps, 4)
         XCTAssertEqual(oneRepMaxes[0].exercises[1].weight, 260)
         XCTAssertEqual(oneRepMaxes[0].exercises[1].oneRepMax, 283.6363636363636)
-        XCTAssertEqual(oneRepMaxes[0].latestOneRepMax, 283.6363636363636)
+        XCTAssertEqual(oneRepMaxes[0].lastExercise.oneRepMax, 283.6363636363636)
 
         XCTAssertEqual(oneRepMaxes[1].name, "Bench Press")
         XCTAssertEqual(oneRepMaxes[1].exercises.count, 1)
         XCTAssertEqual(oneRepMaxes[1].exercises[0].reps, 2)
         XCTAssertEqual(oneRepMaxes[1].exercises[0].weight, 225)
         XCTAssertEqual(oneRepMaxes[1].exercises[0].oneRepMax, 231.42857142857142)
-        XCTAssertEqual(oneRepMaxes[1].latestOneRepMax, 231.42857142857142)
+        XCTAssertEqual(oneRepMaxes[1].lastExercise.oneRepMax, 231.42857142857142)
         
         XCTAssertEqual(oneRepMaxes[2].name, "Biceps Curl")
         XCTAssertEqual(oneRepMaxes[2].exercises.count, 3)
@@ -80,14 +80,14 @@ final class OneRepMaxListModelTests: XCTestCase {
         XCTAssertEqual(oneRepMaxes[2].exercises[2].reps, 10)
         XCTAssertEqual(oneRepMaxes[2].exercises[2].weight, 50)
         XCTAssertEqual(oneRepMaxes[2].exercises[2].oneRepMax, 66.66666666666666)
-        XCTAssertEqual(oneRepMaxes[2].latestOneRepMax, 66.66666666666666)
+        XCTAssertEqual(oneRepMaxes[2].lastExercise.oneRepMax, 66.66666666666666)
 
         XCTAssertEqual(oneRepMaxes[3].name, "Deadlift")
         XCTAssertEqual(oneRepMaxes[3].exercises.count, 1)
         XCTAssertEqual(oneRepMaxes[3].exercises[0].reps, 3)
         XCTAssertEqual(oneRepMaxes[3].exercises[0].weight, 315)
         XCTAssertEqual(oneRepMaxes[3].exercises[0].oneRepMax, 333.5294117647059)
-        XCTAssertEqual(oneRepMaxes[3].latestOneRepMax, 333.5294117647059)
+        XCTAssertEqual(oneRepMaxes[3].lastExercise.oneRepMax, 333.5294117647059)
     }
 }
 

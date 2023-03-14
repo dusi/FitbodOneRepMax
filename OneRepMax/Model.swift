@@ -19,7 +19,7 @@ struct OneRepMax: Identifiable {
     let id: UUID = UUID()
     let exercises: [Exercise]
     let name: String
-    let latestOneRepMax: Double
+    let lastExercise: Exercise
 }
 
 // MARK: - Mocks
@@ -48,7 +48,7 @@ extension OneRepMax {
     static let mock = Self(
         exercises: [.mock],
         name: "Deadlift",
-        latestOneRepMax: Exercise.mock.oneRepMax
+        lastExercise: Exercise.mock
     )
     
     static func mock(name: String, exercises: [Exercise]) -> Self {
@@ -57,14 +57,14 @@ extension OneRepMax {
             return Self(
                 exercises: [],
                 name: name,
-                latestOneRepMax: 0
+                lastExercise: .mock
             )
         }
         
         return Self(
             exercises: exercises,
             name: name,
-            latestOneRepMax: last.oneRepMax
+            lastExercise: last
         )
     }
 }

@@ -62,17 +62,17 @@ extension OneRepMaxListModel {
                 let oneRepMaxExercisesSortedAscending = oneRepMaxExercises.values.elements.sorted { e1, e2 in e1.date < e2.date }
                 
                 // Get the latest one rep max
-                guard let latestOneRepMax = oneRepMaxExercisesSortedAscending.last?.oneRepMax
+                guard let lastExercise = oneRepMaxExercisesSortedAscending.last
                 else { return nil }
                 
                 // Map data
                 return OneRepMax(
                     exercises: oneRepMaxExercisesSortedAscending,
                     name: name,
-                    latestOneRepMax: latestOneRepMax
+                    lastExercise: lastExercise
                 )
             }
-            // Sort one max rep array by name lexicographically
+            // Sort by name lexicographically
             .sorted { $0.name < $1.name }
         }
     }

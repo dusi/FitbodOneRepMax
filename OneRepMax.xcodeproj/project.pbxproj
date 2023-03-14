@@ -29,6 +29,8 @@
 		E981B9E429BFC6A20089D173 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E329BFC6A20089D173 /* ConstantsTests.swift */; };
 		E981B9E629BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */; };
 		E981B9E829BFCA1E0089D173 /* Bundle+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */; };
+		E981B9EA29BFD3FC0089D173 /* OneRepMaxDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9E929BFD3FC0089D173 /* OneRepMaxDetail.swift */; };
+		E981B9EC29C107620089D173 /* OneRepMaxDetailModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E981B9EB29C107620089D173 /* OneRepMaxDetailModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		E981B9E329BFC6A20089D173 /* ConstantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		E981B9E929BFD3FC0089D173 /* OneRepMaxDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxDetail.swift; sourceTree = "<group>"; };
+		E981B9EB29C107620089D173 /* OneRepMaxDetailModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxDetailModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				E962417229BD97AF005857E4 /* Info.plist */,
 				E962415729BD972F005857E4 /* OneRepMaxApp.swift */,
 				E962415929BD972F005857E4 /* OneRepMaxList.swift */,
+				E981B9E929BFD3FC0089D173 /* OneRepMaxDetail.swift */,
 				E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */,
 				E962417329BE6734005857E4 /* DataStore.swift */,
 				E962418229BEA357005857E4 /* DataProvider.swift */,
@@ -145,6 +150,7 @@
 				E981B9E329BFC6A20089D173 /* ConstantsTests.swift */,
 				E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */,
 				E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */,
+				E981B9EB29C107620089D173 /* OneRepMaxDetailModelTests.swift */,
 			);
 			path = OneRepMaxTests;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			files = (
 				E981B9DC29BFA3BD0089D173 /* OneRepMaxRow.swift in Sources */,
 				E981B9E029BFB5D40089D173 /* Constants.swift in Sources */,
+				E981B9EA29BFD3FC0089D173 /* OneRepMaxDetail.swift in Sources */,
 				E962415A29BD972F005857E4 /* OneRepMaxList.swift in Sources */,
 				E962417A29BE73A9005857E4 /* Bundle+Extensions.swift in Sources */,
 				E962418329BEA357005857E4 /* DataProvider.swift in Sources */,
@@ -274,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E981B9EC29C107620089D173 /* OneRepMaxDetailModelTests.swift in Sources */,
 				E981B9E229BFC2B10089D173 /* Double+ExtensionsTests.swift in Sources */,
 				E962418729BEBBB1005857E4 /* ModelTests.swift in Sources */,
 				E962418529BEA433005857E4 /* DataProviderTests.swift in Sources */,

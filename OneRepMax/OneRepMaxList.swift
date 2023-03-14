@@ -55,7 +55,7 @@ struct OneRepMaxList: View {
                     List {
                         ForEach(oneRepMaxes) { oneRepMax in
                             NavigationLink {
-                                
+                                OneRepMaxDetail(oneRepMax: oneRepMax)
                             } label: {
                                 OneRepMaxRow(oneRepMax: oneRepMax)
                             }

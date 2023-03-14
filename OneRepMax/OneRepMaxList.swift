@@ -70,6 +70,8 @@ extension OneRepMaxListModel {
                     latestOneRepMax: latestOneRepMax
                 )
             }
+            // Sort by name lexicographically
+            .sorted { $0.name < $1.name }
         }
     }
     

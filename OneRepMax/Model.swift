@@ -31,12 +31,39 @@ extension Exercise {
         sets: 1,
         weight: 265
     )
+    
+    static func mock(name: String, date: Date, sets: Int, weight: Int) -> Self {
+        Self(
+            date: date,
+            name: "Deadlift",
+            reps: 10,
+            sets: sets,
+            weight: weight
+        )
+    }
 }
 
 extension OneRepMax {
-    static let mock = OneRepMax(
+    static let mock = Self(
         exercises: [.mock],
         name: "Deadlift",
         latestOneRepMax: Exercise.mock.oneRepMax
     )
+    
+    static func mock(name: String, exercises: [Exercise]) -> Self {
+        guard let last = exercises.last
+        else {
+            return Self(
+                exercises: [],
+                name: name,
+                latestOneRepMax: 0
+            )
+        }
+        
+        return Self(
+            exercises: exercises,
+            name: name,
+            latestOneRepMax: last.oneRepMax
+        )
+    }
 }

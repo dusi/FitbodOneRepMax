@@ -97,7 +97,7 @@ struct OneRepMaxList: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationSplitView {
             Group {
                 switch self.model.state {
                 case .error:
@@ -119,6 +119,8 @@ struct OneRepMaxList: View {
             }
             .navigationTitle("One Rep Max")
             .navigationBarTitleDisplayMode(.inline)
+        } detail: {
+            Image(systemName: "chart.xyaxis.line")
         }
         .task {
             self.model.task()

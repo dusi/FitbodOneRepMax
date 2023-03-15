@@ -4,14 +4,20 @@ protocol DataStoreInterface {
     var exercises: [Exercise] { get async throws }
 }
 
-struct DataStore {
+class DataStore {
     enum DataError: Error {
         case invalidUrl
         case inputSerialization
     }
     
+    /// The bundle to use for loading data from
     private let bundle: Bundle
+    
+    /// The parser that can map input String to output Exercise
     private let parser: ParserInterface
+    
+    /// The in-memory cache
+    private var cachedExercises: [Exercise]?
     
     init(
         bundle: Bundle = .main,
@@ -25,6 +31,8 @@ struct DataStore {
 extension DataStore: DataStoreInterface {
     var exercises: [Exercise] {
         get async throws {
+            if let cachedExercises { return cachedExercises }
+            
             guard let url = bundle.sample1
             else {
                 throw DataError.invalidUrl
@@ -40,7 +48,12 @@ extension DataStore: DataStoreInterface {
             }
             
             // Parse data
-            return try await parser.parseExercises(from: input)
+            let exercises = try await parser.parseExercises(from: input)
+            
+            // Cache in-memory
+            cachedExercises = exercises
+            
+            return exercises
         }
     }
 }

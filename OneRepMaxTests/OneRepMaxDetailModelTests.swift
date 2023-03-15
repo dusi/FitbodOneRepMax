@@ -1,3 +1,4 @@
+import Charts
 import XCTest
 @testable import OneRepMax
 
@@ -22,6 +23,11 @@ final class OneRepMaxDetailModelTests: XCTestCase {
             name: "Deadlift",
             lastExercise: .mock
         )
+    }
+    
+    func testSelectedExerciseIsNilByDefault() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        XCTAssertNil(sut.selectedExercise)
     }
     
     func testExercisesAreLimitedTo31Elements() {
@@ -49,5 +55,24 @@ final class OneRepMaxDetailModelTests: XCTestCase {
     func testYAxisMaxValue() {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
         XCTAssertEqual(sut.yAxisMaxValue, 271.66666666666663)
+    }
+    
+    func testChartGestureDidChange() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        XCTAssertNil(sut.selectedExercise)
+        sut.chartGestureDidChange(with: sut.exercises.first!.date)
+        XCTAssertEqual(sut.selectedExercise?.date, sut.exercises.first?.date)
+        sut.chartGestureDidChange(with: sut.exercises.last!.date)
+        XCTAssertEqual(sut.selectedExercise?.date, sut.exercises.last?.date)
+        sut.chartGestureDidEnd()
+        XCTAssertNil(sut.selectedExercise)
+    }
+    
+    func testChartGestureDidEnd() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        sut.selectedExercise = .mock
+        XCTAssertNotNil(sut.selectedExercise)
+        sut.chartGestureDidEnd()
+        XCTAssertNil(sut.selectedExercise)
     }
 }

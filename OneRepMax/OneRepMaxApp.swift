@@ -6,9 +6,11 @@ struct OneRepMaxApp: App {
         WindowGroup {
             OneRepMaxList(
                 model: OneRepMaxListModel(
-                    dataStore: DataStore(
-                        parser: Parser(
-                            dateFormatter: DateFormatter.input()
+                    dataProvider: DataProvider(
+                        dataStore: DataStore(
+                            parser: Parser(
+                                dateFormatter: DateFormatter.input()
+                            )
                         )
                     )
                 )

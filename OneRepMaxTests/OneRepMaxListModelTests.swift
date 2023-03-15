@@ -13,7 +13,7 @@ final class OneRepMaxListModelTests: XCTestCase {
     func testOneRepMaxes_When_Throws() async throws {
         mockDataStore.mockResult = .failure(MockError())
         
-        let sut = await OneRepMaxListModel(dataStore: mockDataStore)
+        let sut = OneRepMaxListModel(dataStore: mockDataStore)
         
         do {
             let _ = try await sut.oneRepMaxes
@@ -24,7 +24,7 @@ final class OneRepMaxListModelTests: XCTestCase {
     }
     
     func testOneRepMaxes_When_Empty() async throws {
-        let sut = await OneRepMaxListModel(dataStore: mockDataStore)
+        let sut = OneRepMaxListModel(dataStore: mockDataStore)
         let oneRepMaxes = try await sut.oneRepMaxes
         XCTAssertEqual(oneRepMaxes.count, 0)
     }
@@ -47,7 +47,7 @@ final class OneRepMaxListModelTests: XCTestCase {
             Exercise(date: Date(timeIntervalSinceReferenceDate: 7), name: "Biceps Curl", reps: 10, sets: 1, weight: 50),
         ])
         
-        let sut = await OneRepMaxListModel(dataStore: mockDataStore)
+        let sut = OneRepMaxListModel(dataStore: mockDataStore)
         let oneRepMaxes = try await sut.oneRepMaxes
         
         XCTAssertEqual(oneRepMaxes.count, 4)

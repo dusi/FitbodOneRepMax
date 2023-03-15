@@ -1,7 +1,6 @@
 import OrderedCollections
 import SwiftUI
 
-@MainActor
 class OneRepMaxListModel: ObservableObject {
     enum State {
         case error
@@ -81,7 +80,10 @@ extension OneRepMaxListModel {
         Task {
             do {
                 let oneRepMaxes = try await self.oneRepMaxes
-                self.state = .list(oneRepMaxes)
+
+                await MainActor.run {
+                    self.state = .list(oneRepMaxes)
+                }
             } catch {
                 self.state = .error
             }

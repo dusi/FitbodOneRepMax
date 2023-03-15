@@ -30,30 +30,37 @@ final class OneRepMaxDetailModelTests: XCTestCase {
         XCTAssertNil(sut.selectedExercise)
     }
     
-    func testExercisesAreLimitedTo31Elements() {
-        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+    func testExercisesAreLimitedTo31ElementsOnPhoneDevices() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.oneRepMax.name, "Deadlift")
         XCTAssertEqual(sut.oneRepMax.exercises.count, 100)
         XCTAssertEqual(sut.exercises.count, 31)
     }
     
+    func testExercisesAreLimitedTo93ElementsOnPadDevices() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .pad)
+        XCTAssertEqual(sut.oneRepMax.name, "Deadlift")
+        XCTAssertEqual(sut.oneRepMax.exercises.count, 100)
+        XCTAssertEqual(sut.exercises.count, 93)
+    }
+    
     func testMinValue() {
-        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.minValue, 226.66666666666666)
     }
     
     func testMaxValue() {
-        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.minValue, 226.66666666666666)
     }
     
     func testYAxisMinValue() {
-        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.yAxisMinValue, 221.66666666666666)
     }
     
     func testYAxisMaxValue() {
-        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.yAxisMaxValue, 271.66666666666663)
     }
     

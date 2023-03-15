@@ -3,7 +3,8 @@ import SwiftUI
 
 class OneRepMaxDetailModel: ObservableObject {
     struct Defaults {
-        static let exercisesLimit = 31
+        static let exercisesPhoneLimit = 31
+        static let exercisesPadLimit = 93
     }
     
     /// The on rep max
@@ -27,9 +28,11 @@ class OneRepMaxDetailModel: ObservableObject {
     /// Selected exercise based on user's interaction with the chart
     @Published var selectedExercise: Exercise?
     
-    init(oneRepMax: OneRepMax) {
+    init(oneRepMax: OneRepMax, userInterfaceIdiom: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom) {
         self.oneRepMax = oneRepMax
-        self.exercises = oneRepMax.exercises.suffix(Defaults.exercisesLimit)
+        self.exercises = oneRepMax.exercises.suffix(
+            userInterfaceIdiom == .pad ? Defaults.exercisesPadLimit : Defaults.exercisesPhoneLimit
+        )
     }
 }
 
@@ -107,7 +110,7 @@ struct OneRepMaxDetail: View {
     @ObservedObject var model: OneRepMaxDetailModel
     
     init(oneRepMax: OneRepMax) {
-        self.model = OneRepMaxDetailModel(oneRepMax: oneRepMax)
+        self.model = OneRepMaxDetailModel(oneRepMax: oneRepMax, userInterfaceIdiom: UIDevice.current.userInterfaceIdiom)
     }
     
     var body: some View {

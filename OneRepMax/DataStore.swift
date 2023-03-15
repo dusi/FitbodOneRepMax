@@ -11,7 +11,7 @@ class DataStore {
     }
     
     /// The bundle to use for loading data from
-    private let bundle: Bundle
+    private let url: URL?
     
     /// The parser that can map input String to output Exercise
     private let parser: ParserInterface
@@ -20,10 +20,10 @@ class DataStore {
     private var cachedExercises: [Exercise]?
     
     init(
-        bundle: Bundle = .main,
+        url: URL? = Bundle.main.sample1,
         parser: ParserInterface
     ) {
-        self.bundle = bundle
+        self.url = url
         self.parser = parser
     }
 }
@@ -34,7 +34,8 @@ extension DataStore: DataStoreInterface {
             // Cache data after initial load
             if let cachedExercises { return cachedExercises }
             
-            guard let url = bundle.sample1
+            // Make url optional will help us test cached exercises
+            guard let url
             else {
                 throw DataError.invalidUrl
             }

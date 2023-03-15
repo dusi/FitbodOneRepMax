@@ -28,6 +28,7 @@
 		E98C75EF29C1368000DD6693 /* OneRepMaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75EE29C1368000DD6693 /* OneRepMaxHeader.swift */; };
 		E98C75F129C2488900DD6693 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F029C2488900DD6693 /* DataProvider.swift */; };
 		E98C75F329C249F900DD6693 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F229C249F900DD6693 /* DataProviderTests.swift */; };
+		E98C75F529C2513F00DD6693 /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F429C2513F00DD6693 /* DataStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E98C75EE29C1368000DD6693 /* OneRepMaxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxHeader.swift; sourceTree = "<group>"; };
 		E98C75F029C2488900DD6693 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		E98C75F229C249F900DD6693 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
+		E98C75F429C2513F00DD6693 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */,
 				E981B9EB29C107620089D173 /* OneRepMaxDetailModelTests.swift */,
 				E98C75F229C249F900DD6693 /* DataProviderTests.swift */,
+				E98C75F429C2513F00DD6693 /* DataStoreTests.swift */,
 			);
 			path = OneRepMaxTests;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				E98C75F329C249F900DD6693 /* DataProviderTests.swift in Sources */,
 				E981B9EC29C107620089D173 /* OneRepMaxDetailModelTests.swift in Sources */,
 				E962418729BEBBB1005857E4 /* ModelTests.swift in Sources */,
+				E98C75F529C2513F00DD6693 /* DataStoreTests.swift in Sources */,
 				E962416C29BD9777005857E4 /* ParserTests.swift in Sources */,
 				E981B9E829BFCA1E0089D173 /* Bundle+ExtensionsTests.swift in Sources */,
 				E981B9E629BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift in Sources */,

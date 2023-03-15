@@ -31,6 +31,7 @@ class DataStore {
 extension DataStore: DataStoreInterface {
     var exercises: [Exercise] {
         get async throws {
+            // Cache data after initial load
             if let cachedExercises { return cachedExercises }
             
             guard let url = bundle.sample1

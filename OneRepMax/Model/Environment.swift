@@ -6,6 +6,7 @@ import Foundation
 struct Environment {
     enum DataSourceOption: Int {
         case `default`
+        case large
         case empty
         case invalid
     }

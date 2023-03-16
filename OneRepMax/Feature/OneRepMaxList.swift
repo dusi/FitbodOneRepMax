@@ -44,6 +44,8 @@ extension OneRepMaxListModel {
     func task(with option: Environment.DataSourceOption) {
         Environment.dataSourceOption = option
         
+        self.state = .loading
+        
         task()
     }
 #endif
@@ -102,6 +104,11 @@ struct OneRepMaxList: View {
                                     Image(systemName: "chart.xyaxis.line")
                                 }
                                 .tag(Environment.DataSourceOption.default.rawValue)
+                                HStack {
+                                    Text("Large")
+                                    Image(systemName: "scalemass")
+                                }
+                                .tag(Environment.DataSourceOption.large.rawValue)
                                 HStack {
                                     Text("Empty")
                                     Image(systemName: "0.square")

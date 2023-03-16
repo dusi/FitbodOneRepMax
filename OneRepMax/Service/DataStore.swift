@@ -28,6 +28,8 @@ extension DataStore: DataStoreInterface {
         switch Environment.dataSourceOption {
         case .default:
             return Bundle.main.sample
+        case .large:
+            return Bundle.main.sampleLarge
         case .empty:
             return Bundle.main.empty
         case .invalid:

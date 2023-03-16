@@ -3,6 +3,7 @@ import SwiftUI
 @MainActor
 class OneRepMaxListModel: ObservableObject {
     enum State {
+        case empty
         case error
         case list([OneRepMax])
         case loading
@@ -26,7 +27,7 @@ extension OneRepMaxListModel {
         Task {
             do {
                 let oneRepMaxes = try await self.dataProvider.oneRepMaxes
-                self.state = .list(oneRepMaxes)
+                self.state = oneRepMaxes.count > 0 ? .list(oneRepMaxes) : .empty
             } catch {
                 self.state = .error
             }
@@ -57,6 +58,8 @@ struct OneRepMaxList: View {
         NavigationSplitView {
             Group {
                 switch self.model.state {
+                case .empty:
+                    Text("Empty")
                 case .error:
                     Text("Error")
                 case .list(let oneRepMaxes):

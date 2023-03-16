@@ -3,8 +3,15 @@ import SwiftUI
 
 class OneRepMaxDetailModel: ObservableObject {
     struct Defaults {
-        static let exercisesPhoneLimit = 31
-        static let exercisesPadLimit = 93
+        struct Device {
+            static let exercisesPhoneLimit = 31
+            static let exercisesPadLimit = 93
+        }
+        
+        struct Style {
+            static let lineMarkForegroundColors: [Color] = [.green, .yellow, .red]
+            static let selectionColor = Color.blue
+        }
     }
     
     /// The on rep max
@@ -31,7 +38,7 @@ class OneRepMaxDetailModel: ObservableObject {
     init(oneRepMax: OneRepMax, userInterfaceIdiom: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom) {
         self.oneRepMax = oneRepMax
         self.exercises = oneRepMax.exercises.suffix(
-            userInterfaceIdiom == .pad ? Defaults.exercisesPadLimit : Defaults.exercisesPhoneLimit
+            userInterfaceIdiom == .pad ? Defaults.Device.exercisesPadLimit : Defaults.Device.exercisesPhoneLimit
         )
     }
 }
@@ -83,10 +90,8 @@ extension OneRepMaxDetailModel {
     
     /// The foreground color used in the header
     var headerForegroundColor: Color {
-        selectedExercise != nil ? .blue : .black
+        selectedExercise != nil ? Defaults.Style.selectionColor : .black
     }
-    
-    
     
     /// The user gesture to interact with the chart
     func chartGestureDidChange(with date: Date) {
@@ -135,7 +140,7 @@ struct OneRepMaxDetail: View {
                         .symbolSize(50)
                         .foregroundStyle(
                             .linearGradient(
-                                colors: [.green, .yellow, .red],
+                                colors: OneRepMaxDetailModel.Defaults.Style.lineMarkForegroundColors,
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
@@ -146,14 +151,14 @@ struct OneRepMaxDetail: View {
                         RuleMark(
                             x: .value("Selected date", selectedExercise.date)
                         )
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(OneRepMaxDetailModel.Defaults.Style.selectionColor)
                      
                         PointMark(
                             x: .value("Selected date", selectedExercise.date),
                             y: .value("Selected exercise", selectedExercise)
                         )
                         .symbolSize(150)
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(OneRepMaxDetailModel.Defaults.Style.selectionColor)
                     }
                 }
                 // We want our y-axis to start closer to the min and max values
@@ -168,8 +173,7 @@ struct OneRepMaxDetail: View {
                             .gesture(
                                 DragGesture()
                                     .onChanged { value in
-                                        let xPosition = value.location.x - geometry[proxy.plotAreaFrame].origin.x
-                                        guard let date: Date = proxy.value(atX: xPosition)
+                                        guard let date = aaaa(for: value.location, geometry: geometry, chart: proxy)
                                         else { return }
                                         self.model.chartGestureDidChange(with: date)
                                     }

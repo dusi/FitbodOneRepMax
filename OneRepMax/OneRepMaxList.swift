@@ -82,7 +82,7 @@ struct OneRepMaxList: View {
             // ⚠️ Debug Mode - Enable runtime change of the data source for better testability.
             #if DEBUG
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Text("Override data source")
                             Picker("Test", selection: self.$menuSelection) {

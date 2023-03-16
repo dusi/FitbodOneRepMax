@@ -112,21 +112,13 @@
 		E962415629BD972F005857E4 /* OneRepMax */ = {
 			isa = PBXGroup;
 			children = (
+				E98C75FC29C2BD6200DD6693 /* Extensions */,
+				E98C75FA29C2BD3600DD6693 /* Feature */,
+				E98C75FD29C2BD7200DD6693 /* Model */,
+				E98C75FB29C2BD4B00DD6693 /* Service */,
 				E962417229BD97AF005857E4 /* Info.plist */,
-				E962415729BD972F005857E4 /* OneRepMaxApp.swift */,
-				E962415929BD972F005857E4 /* OneRepMaxList.swift */,
-				E98C75F029C2488900DD6693 /* DataProvider.swift */,
-				E981B9E929BFD3FC0089D173 /* OneRepMaxDetail.swift */,
-				E98C75EE29C1368000DD6693 /* OneRepMaxHeader.swift */,
-				E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */,
-				E962417329BE6734005857E4 /* DataStore.swift */,
-				E98C75F829C2BABE00DD6693 /* Environment.swift */,
-				E962417929BE73A9005857E4 /* Bundle+Extensions.swift */,
-				E962417D29BE810C005857E4 /* DateFormatter+Extensions.swift */,
-				E962417729BE6DE3005857E4 /* Parser.swift */,
-				E962417529BE6946005857E4 /* Model.swift */,
-				E962417B29BE75DA005857E4 /* sample.txt */,
 				E98C75F629C2A99A00DD6693 /* empty.txt */,
+				E962417B29BE75DA005857E4 /* sample.txt */,
 				E962415B29BD972F005857E4 /* Assets.xcassets */,
 				E962415D29BD972F005857E4 /* Preview Content */,
 			);
@@ -144,15 +136,87 @@
 		E962416A29BD9777005857E4 /* OneRepMaxTests */ = {
 			isa = PBXGroup;
 			children = (
-				E962416B29BD9777005857E4 /* ParserTests.swift */,
-				E962418629BEBBB1005857E4 /* ModelTests.swift */,
-				E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */,
-				E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */,
-				E981B9EB29C107620089D173 /* OneRepMaxDetailModelTests.swift */,
-				E98C75F229C249F900DD6693 /* DataProviderTests.swift */,
-				E98C75F429C2513F00DD6693 /* DataStoreTests.swift */,
+				E98C760029C2BE5900DD6693 /* Extensions */,
+				E98C760129C2BEB000DD6693 /* Feature */,
+				E98C760229C2BEB900DD6693 /* Model */,
+				E98C75FF29C2BE5200DD6693 /* Service */,
 			);
 			path = OneRepMaxTests;
+			sourceTree = "<group>";
+		};
+		E98C75FA29C2BD3600DD6693 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				E962415729BD972F005857E4 /* OneRepMaxApp.swift */,
+				E962415929BD972F005857E4 /* OneRepMaxList.swift */,
+				E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */,
+				E981B9E929BFD3FC0089D173 /* OneRepMaxDetail.swift */,
+				E98C75EE29C1368000DD6693 /* OneRepMaxHeader.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		E98C75FB29C2BD4B00DD6693 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E98C75F029C2488900DD6693 /* DataProvider.swift */,
+				E962417329BE6734005857E4 /* DataStore.swift */,
+				E962417729BE6DE3005857E4 /* Parser.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E98C75FC29C2BD6200DD6693 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E962417929BE73A9005857E4 /* Bundle+Extensions.swift */,
+				E962417D29BE810C005857E4 /* DateFormatter+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E98C75FD29C2BD7200DD6693 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E98C75F829C2BABE00DD6693 /* Environment.swift */,
+				E962417529BE6946005857E4 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E98C75FF29C2BE5200DD6693 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E98C75F229C249F900DD6693 /* DataProviderTests.swift */,
+				E98C75F429C2513F00DD6693 /* DataStoreTests.swift */,
+				E962416B29BD9777005857E4 /* ParserTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E98C760029C2BE5900DD6693 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E981B9E729BFCA1E0089D173 /* Bundle+ExtensionsTests.swift */,
+				E981B9E529BFCA0C0089D173 /* DateFormatter+ExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E98C760129C2BEB000DD6693 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				E981B9EB29C107620089D173 /* OneRepMaxDetailModelTests.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		E98C760229C2BEB900DD6693 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E962418629BEBBB1005857E4 /* ModelTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -30,6 +30,7 @@
 		E98C75F329C249F900DD6693 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F229C249F900DD6693 /* DataProviderTests.swift */; };
 		E98C75F529C2513F00DD6693 /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F429C2513F00DD6693 /* DataStoreTests.swift */; };
 		E98C75F729C2A99A00DD6693 /* empty.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98C75F629C2A99A00DD6693 /* empty.txt */; };
+		E98C75F929C2BABE00DD6693 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F829C2BABE00DD6693 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E98C75F229C249F900DD6693 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		E98C75F429C2513F00DD6693 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		E98C75F629C2A99A00DD6693 /* empty.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = empty.txt; sourceTree = "<group>"; };
+		E98C75F829C2BABE00DD6693 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				E98C75EE29C1368000DD6693 /* OneRepMaxHeader.swift */,
 				E981B9DB29BFA3BD0089D173 /* OneRepMaxRow.swift */,
 				E962417329BE6734005857E4 /* DataStore.swift */,
+				E98C75F829C2BABE00DD6693 /* Environment.swift */,
 				E962417929BE73A9005857E4 /* Bundle+Extensions.swift */,
 				E962417D29BE810C005857E4 /* DateFormatter+Extensions.swift */,
 				E962417729BE6DE3005857E4 /* Parser.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E981B9DC29BFA3BD0089D173 /* OneRepMaxRow.swift in Sources */,
+				E98C75F929C2BABE00DD6693 /* Environment.swift in Sources */,
 				E981B9EA29BFD3FC0089D173 /* OneRepMaxDetail.swift in Sources */,
 				E962415A29BD972F005857E4 /* OneRepMaxList.swift in Sources */,
 				E962417A29BE73A9005857E4 /* Bundle+Extensions.swift in Sources */,

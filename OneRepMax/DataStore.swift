@@ -22,7 +22,19 @@ class DataStore {
 
 extension DataStore: DataStoreInterface {
     private var exercisesUrl: URL? {
-        Bundle.main.sample
+        // ⚠️ Debug Mode - Enable runtime change of the data source for better testability.
+#if DEBUG
+        switch Environment.dataSourceOption {
+        case .default:
+            return Bundle.main.sample
+        case .empty:
+            return Bundle.main.empty
+        case .invalid:
+            return Bundle.main.invalid
+        }
+#else
+        return Bundle.main.sample
+#endif
     }
     
     // If changed to a function that takes path url we can mock it (real, empty, invalid-url)

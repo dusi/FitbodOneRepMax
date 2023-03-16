@@ -83,7 +83,9 @@ struct OneRepMaxList: View {
                     }
                     .listStyle(.plain)
                 case .loading:
-                    Text("Loading..")
+                    ProgressView {
+                        Text("Loading...")
+                    }
                 }
             }
             .navigationTitle("One Rep Max")

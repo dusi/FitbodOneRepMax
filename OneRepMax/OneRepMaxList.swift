@@ -4,7 +4,7 @@ import SwiftUI
 class OneRepMaxListModel: ObservableObject {
     enum State {
         case empty
-        case error
+        case error(String)
         case list([OneRepMax])
         case loading
     }
@@ -29,7 +29,7 @@ extension OneRepMaxListModel {
                 let oneRepMaxes = try await self.dataProvider.oneRepMaxes
                 self.state = oneRepMaxes.count > 0 ? .list(oneRepMaxes) : .empty
             } catch {
-                self.state = .error
+                self.state = .error(error.localizedDescription)
             }
         }
     }
@@ -60,8 +60,8 @@ struct OneRepMaxList: View {
                 switch self.model.state {
                 case .empty:
                     Text("Empty")
-                case .error:
-                    Text("Error")
+                case .error(let localizedDescription):
+                    Text("Error: \(localizedDescription)")
                 case .list(let oneRepMaxes):
                     List {
                         ForEach(oneRepMaxes) { oneRepMax in

@@ -1,7 +1,15 @@
 import Foundation
 
 extension Bundle {
-    var sample1: URL? {
-        url(forResource: "sample1", withExtension: "txt")
+    var sample: URL? {
+        url(forResource: "sample", withExtension: "txt")
+    }
+    
+    var empty: URL? {
+        url(forResource: "empty", withExtension: "txt")
+    }
+    
+    var invalid: URL? {
+        url(forResource: "invalid-resource", withExtension: nil)
     }
 }

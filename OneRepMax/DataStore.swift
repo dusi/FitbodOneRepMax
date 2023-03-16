@@ -16,11 +16,8 @@ class DataStore {
     /// The parser that can map input String to output Exercise
     private let parser: ParserInterface
     
-    /// The in-memory cache
-    private var cachedExercises: [Exercise]?
-    
     init(
-        url: URL? = Bundle.main.sample1,
+        url: URL? = Bundle.main.sample,
         parser: ParserInterface
     ) {
         self.url = url
@@ -29,11 +26,9 @@ class DataStore {
 }
 
 extension DataStore: DataStoreInterface {
+    // If changed to a function that takes path url we can mock it (real, empty, invalid-url)
     var exercises: [Exercise] {
         get async throws {
-            // Cache data after initial load
-            if let cachedExercises { return cachedExercises }
-            
             // Make url optional will help us test cached exercises
             guard let url
             else {
@@ -50,12 +45,7 @@ extension DataStore: DataStoreInterface {
             }
             
             // Parse data
-            let exercises = try await parser.parseExercises(from: input)
-            
-            // Cache in-memory
-            cachedExercises = exercises
-            
-            return exercises
+            return try await parser.parseExercises(from: input)
         }
     }
 }

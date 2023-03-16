@@ -1,6 +1,6 @@
 import Foundation
 
-#if DEBUG
+#if DEBUG   // For debugging purposes only
 /// Environment is solely used for debugging purposes as an in-memory cache for selected data source override
 /// This should allow for easier testing.
 struct Environment {

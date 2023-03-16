@@ -1,7 +1,9 @@
 import Charts
 import SwiftUI
 
+/// The model that is responsible for providing data to the view and handling user interactions with the chart
 class OneRepMaxDetailModel: ObservableObject {
+    /// Pre-defined values
     struct Defaults {
         struct Device {
             static let exercisesPhoneLimit = 31
@@ -111,7 +113,9 @@ extension OneRepMaxDetailModel {
     }
 }
 
+/// The view that displays one rep max detail
 struct OneRepMaxDetail: View {
+    /// The model that provides most of the business logic
     @ObservedObject var model: OneRepMaxDetailModel
     
     init(oneRepMax: OneRepMax) {
@@ -127,6 +131,7 @@ struct OneRepMaxDetail: View {
             )
             
             GeometryReader { geometry in
+                // The chart with historical one rep maxes
                 Chart {
                     ForEach(self.model.exercises) { exercise in
                         LineMark(
@@ -146,7 +151,7 @@ struct OneRepMaxDetail: View {
                             )
                         )
                     }
-                    // Selection
+                    // Show a ruler when user interacts with the chart
                     if let selectedExercise = self.model.selectedExercise {
                         RuleMark(
                             x: .value("Selected date", selectedExercise.date)
@@ -161,7 +166,7 @@ struct OneRepMaxDetail: View {
                         .foregroundStyle(OneRepMaxDetailModel.Defaults.Style.selectionColor)
                     }
                 }
-                // We want our y-axis to start closer to the min and max values
+                // We want our y-axis to start closer to the min and max values (not from zero)
                 .chartYScale(domain: self.model.yAxisMinValue...self.model.yAxisMaxValue)
                 .frame(height: geometry.size.height * 0.5)
                 // Allow interactions with the chart

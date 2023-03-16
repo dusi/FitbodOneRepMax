@@ -1,10 +1,13 @@
 import Foundation
 
 protocol ParserInterface {
+    /// Parses given String input into an array of exercises
     func parseExercises(from input: String) async throws -> [Exercise]
 }
 
+/// The live implementation of parser
 struct Parser {
+    /// Date formatter used to properly parse the date
     private let dateFormatter: DateFormatter
     
     init(dateFormatter: DateFormatter = DateFormatter()) {

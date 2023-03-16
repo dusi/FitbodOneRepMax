@@ -1,5 +1,6 @@
 import Foundation
 
+/// A unit of exercise
 struct Exercise: Identifiable, Equatable {
     let id: UUID = UUID()
     let date: Date
@@ -15,6 +16,7 @@ extension Exercise {
     }
 }
 
+/// A unit of grouped exercises based on their name including an array of one rep maxes
 struct OneRepMax: Identifiable {
     let id: UUID = UUID()
     let exercises: [Exercise]

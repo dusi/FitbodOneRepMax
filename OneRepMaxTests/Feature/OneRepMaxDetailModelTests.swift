@@ -66,11 +66,15 @@ final class OneRepMaxDetailModelTests: XCTestCase {
     
     func testChartGestureDidChange() {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        // No selection by default
         XCTAssertNil(sut.selectedExercise)
+        // User selects the first date
         sut.chartGestureDidChange(with: sut.exercises.first!.date)
         XCTAssertEqual(sut.selectedExercise, sut.exercises.first)
+        // User selects the last date
         sut.chartGestureDidChange(with: sut.exercises.last!.date)
         XCTAssertEqual(sut.selectedExercise, sut.exercises.last)
+        // User interaction ends
         sut.chartGestureDidEnd()
         XCTAssertNil(sut.selectedExercise)
     }

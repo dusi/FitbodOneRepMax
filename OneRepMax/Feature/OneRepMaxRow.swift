@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Simple row to display one rep maxes
 struct OneRepMaxRow: View {
     private let oneRepMax: OneRepMax
     

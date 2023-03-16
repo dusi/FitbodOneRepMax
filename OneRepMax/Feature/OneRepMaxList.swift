@@ -1,7 +1,9 @@
 import SwiftUI
 
+/// The model that is responsible for loading an array of one rep maxes and presenting it to the user.
 @MainActor
 class OneRepMaxListModel: ObservableObject {
+    /// The 4 view states that user can see
     enum State {
         case empty
         case error(String)
@@ -9,8 +11,10 @@ class OneRepMaxListModel: ObservableObject {
         case loading
     }
 
+    /// The state that is presented to the user
     @Published var state: State
     
+    /// The data provider used to load an array of one max rep exercises
     private let dataProvider: DataProviderInterface
     
     init(
@@ -23,6 +27,7 @@ class OneRepMaxListModel: ObservableObject {
 }
 
 extension OneRepMaxListModel {
+    /// An input to notify the model to load one rep maxes prior to view appearing
     func task() {
         Task {
             do {
@@ -34,7 +39,8 @@ extension OneRepMaxListModel {
         }
     }
     
-#if DEBUG
+#if DEBUG   // For debugging purposes only
+    /// An input that allows changing the data source strictly for debugging purposes
     func task(with option: Environment.DataSourceOption) {
         Environment.dataSourceOption = option
         
@@ -43,10 +49,13 @@ extension OneRepMaxListModel {
 #endif
 }
 
+/// The view that displays list of one rep maxes
 struct OneRepMaxList: View {
+    /// The model that provides most of the business logic
     @ObservedObject private var model: OneRepMaxListModel
     
-#if DEBUG
+#if DEBUG   // For debugging purposes only
+    /// Selected menu item
     @State private var menuSelection: Int = 0
 #endif
     
@@ -79,13 +88,13 @@ struct OneRepMaxList: View {
             }
             .navigationTitle("One Rep Max")
             .navigationBarTitleDisplayMode(.inline)
-            // ⚠️ Debug Mode - Enable runtime change of the data source for better testability.
-            #if DEBUG
+            #if DEBUG   // For debugging purposes only
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
+                    // Simple menu that allows overriding the data source
                     Menu {
                         Text("Override data source")
-                            Picker("Test", selection: self.$menuSelection) {
+                            Picker("", selection: self.$menuSelection) {
                                 HStack {
                                     Text("Default")
                                     Image(systemName: "chart.xyaxis.line")

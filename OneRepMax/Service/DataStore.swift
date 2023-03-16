@@ -1,9 +1,11 @@
 import Foundation
 
 protocol DataStoreInterface {
+    /// An array of all exercises
     var exercises: [Exercise] { get async throws }
 }
 
+/// The live implementation of data source
 class DataStore {
     enum DataError: Error {
         case invalidUrl
@@ -22,8 +24,7 @@ class DataStore {
 
 extension DataStore: DataStoreInterface {
     private var exercisesUrl: URL? {
-        // ⚠️ Debug Mode - Enable runtime change of the data source for better testability.
-#if DEBUG
+#if DEBUG   // For debugging purposes only
         switch Environment.dataSourceOption {
         case .default:
             return Bundle.main.sample

@@ -2,9 +2,11 @@ import Foundation
 import OrderedCollections
 
 protocol DataProviderInterface {
+    /// An array of one rep maxes
     var oneRepMaxes: [OneRepMax] { get async throws }
 }
 
+/// The live implementation of data provider
 struct DataProvider {
     private let dataStore: DataStoreInterface
     
@@ -49,7 +51,7 @@ extension DataProvider: DataProviderInterface {
                     exercises.max { e1, e2 in e1.oneRepMax < e2.oneRepMax }
                 }
                 
-                // Sort all the maximum one rep max exercises by date in an ascending order
+                // Sort all the maximum one rep maxes by date in an ascending order
                 let oneRepMaxExercisesSortedAscending = oneRepMaxExercises.values.elements.sorted { e1, e2 in e1.date < e2.date }
                 
                 // Get the latest one rep max

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// A simple header view to display one rep max info
 struct OneRepMaxHeader: View {
     private let exercise: Exercise
     private let foregroundColor: Color

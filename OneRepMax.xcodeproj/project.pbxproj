@@ -31,6 +31,7 @@
 		E98C75F529C2513F00DD6693 /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F429C2513F00DD6693 /* DataStoreTests.swift */; };
 		E98C75F729C2A99A00DD6693 /* empty.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98C75F629C2A99A00DD6693 /* empty.txt */; };
 		E98C75F929C2BABE00DD6693 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C75F829C2BABE00DD6693 /* Environment.swift */; };
+		E98C760C29C3CE6100DD6693 /* sample-large.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98C760B29C3CDCF00DD6693 /* sample-large.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E98C75F429C2513F00DD6693 /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		E98C75F629C2A99A00DD6693 /* empty.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = empty.txt; sourceTree = "<group>"; };
 		E98C75F829C2BABE00DD6693 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		E98C760B29C3CDCF00DD6693 /* sample-large.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sample-large.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				E962417229BD97AF005857E4 /* Info.plist */,
 				E98C75F629C2A99A00DD6693 /* empty.txt */,
 				E962417B29BE75DA005857E4 /* sample.txt */,
+				E98C760B29C3CDCF00DD6693 /* sample-large.txt */,
 				E962415B29BD972F005857E4 /* Assets.xcassets */,
 				E962415D29BD972F005857E4 /* Preview Content */,
 			);
@@ -308,6 +311,7 @@
 			files = (
 				E962415F29BD972F005857E4 /* Preview Assets.xcassets in Resources */,
 				E962415C29BD972F005857E4 /* Assets.xcassets in Resources */,
+				E98C760C29C3CE6100DD6693 /* sample-large.txt in Resources */,
 				E98C75F729C2A99A00DD6693 /* empty.txt in Resources */,
 				E962417C29BE75DA005857E4 /* sample.txt in Resources */,
 			);

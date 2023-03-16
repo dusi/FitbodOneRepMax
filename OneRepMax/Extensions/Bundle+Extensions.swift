@@ -6,6 +6,11 @@ extension Bundle {
         url(forResource: "sample", withExtension: "txt")
     }
     
+    /// A url for the sample-large.txt
+    var sampleLarge: URL? {
+        url(forResource: "sample-large", withExtension: "txt")
+    }
+    
     /// A url for the empty.txt file
     var empty: URL? {
         url(forResource: "empty", withExtension: "txt")

@@ -73,6 +73,7 @@ struct OneRepMaxList: View {
                     Text("Empty")
                 case .error(let localizedDescription):
                     Text("Error: \(localizedDescription)")
+                        .multilineTextAlignment(.center)
                 case .list(let oneRepMaxes):
                     List {
                         ForEach(oneRepMaxes) { oneRepMax in

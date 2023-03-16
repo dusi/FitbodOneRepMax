@@ -9,7 +9,7 @@ struct OneRepMaxApp: App {
                     dataProvider: DataProvider(
                         dataStore: DataStore(
                             parser: Parser(
-                                dateFormatter: DateFormatter.input()
+                                dateFormatter: DateFormatter.input
                             )
                         )
                     )

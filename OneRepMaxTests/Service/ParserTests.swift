@@ -9,7 +9,7 @@ final class ParserTests: XCTestCase {
     """
     
     func testParseExercises() async throws {
-        let sut: ParserInterface = Parser(dateFormatter: DateFormatter.input())
+        let sut: ParserInterface = Parser(dateFormatter: DateFormatter.input)
         
         let exercises = try await sut.parseExercises(from: mockInput)
         XCTAssertEqual(exercises.count, 3)

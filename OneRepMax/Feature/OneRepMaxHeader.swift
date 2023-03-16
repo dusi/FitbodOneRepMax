@@ -30,6 +30,6 @@ struct OneRepMaxHeader: View {
 
 struct OneRepMaxHeader_Previews: PreviewProvider {
     static var previews: some View {
-        OneRepMaxHeader(dateFormatter: DateFormatter.default(), exercise: .mock, foregroundColor: .blue)
+        OneRepMaxHeader(dateFormatter: DateFormatter.default, exercise: .mock, foregroundColor: .blue)
     }
 }

@@ -78,7 +78,7 @@ extension OneRepMaxDetailModel {
     
     /// Date formatter used to display date values
     var dateFormatter: DateFormatter {
-        DateFormatter.default()
+        DateFormatter.default
     }
     
     /// The foreground color used in the header

@@ -133,7 +133,7 @@ struct OneRepMaxList_Previews: PreviewProvider {
                 dataProvider: DataProvider(
                     dataStore: DataStore(
                         parser: Parser(
-                            dateFormatter: DateFormatter.input()
+                            dateFormatter: DateFormatter.input
                         )
                     )
                 ),

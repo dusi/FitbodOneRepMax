@@ -1,6 +1,6 @@
 import Foundation
 
-struct Exercise: Identifiable {
+struct Exercise: Identifiable, Equatable {
     let id: UUID = UUID()
     let date: Date
     let name: String

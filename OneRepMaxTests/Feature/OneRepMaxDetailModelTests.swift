@@ -68,9 +68,9 @@ final class OneRepMaxDetailModelTests: XCTestCase {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
         XCTAssertNil(sut.selectedExercise)
         sut.chartGestureDidChange(with: sut.exercises.first!.date)
-        XCTAssertEqual(sut.selectedExercise?.date, sut.exercises.first?.date)
+        XCTAssertEqual(sut.selectedExercise, sut.exercises.first)
         sut.chartGestureDidChange(with: sut.exercises.last!.date)
-        XCTAssertEqual(sut.selectedExercise?.date, sut.exercises.last?.date)
+        XCTAssertEqual(sut.selectedExercise, sut.exercises.last)
         sut.chartGestureDidEnd()
         XCTAssertNil(sut.selectedExercise)
     }

@@ -173,7 +173,7 @@ struct OneRepMaxDetail: View {
                             .gesture(
                                 DragGesture()
                                     .onChanged { value in
-                                        guard let date = aaaa(for: value.location, geometry: geometry, chart: proxy)
+                                        guard let date = date(for: value.location, geometry: geometry, chart: proxy)
                                         else { return }
                                         self.model.chartGestureDidChange(with: date)
                                     }
@@ -182,8 +182,7 @@ struct OneRepMaxDetail: View {
                                     }
                             )
                             .onTapGesture { value in
-                                let xPosition = value.x - geometry[proxy.plotAreaFrame].origin.x
-                                guard let date: Date = proxy.value(atX: xPosition)
+                                guard let date = date(for: value, geometry: geometry, chart: proxy)
                                 else { return }
                                 self.model.chartGestureDidChange(with: date)
                             }
@@ -193,6 +192,11 @@ struct OneRepMaxDetail: View {
         }
         .padding()
         .navigationTitle(self.model.oneRepMax.name)
+    }
+    
+    private func date(for location: CGPoint, geometry: GeometryProxy, chart: ChartProxy) -> Date? {
+        let xPosition = location.x - geometry[chart.plotAreaFrame].origin.x
+        return chart.value(atX: xPosition)
     }
 }
 

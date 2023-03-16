@@ -10,7 +10,7 @@ final class DataProviderTests: XCTestCase {
         mockDataStore = MockDataStore()
     }
     
-    func testOneRepMaxes_When_Throws() async throws {
+    func testOneRepMaxes_Throws() async throws {
         mockDataStore.mockResult = .failure(MockError())
     
         let sut = DataProvider(dataStore: mockDataStore)
@@ -23,7 +23,7 @@ final class DataProviderTests: XCTestCase {
         }
     }
     
-    func testOneRepMaxes_When_Empty() async throws {
+    func testOneRepMaxes_Returns_Empty_Array() async throws {
         let sut = DataProvider(dataStore: mockDataStore)
         let oneRepMaxes = try await sut.oneRepMaxes
         XCTAssertEqual(oneRepMaxes.count, 0)

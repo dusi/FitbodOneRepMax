@@ -25,19 +25,19 @@ final class OneRepMaxDetailModelTests: XCTestCase {
         )
     }
     
-    func testSelectedExerciseIsNilByDefault() {
+    func testSelectedExercise_Is_Nil_By_Default() {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
         XCTAssertNil(sut.selectedExercise)
     }
     
-    func testExercisesAreLimitedTo31ElementsOnPhoneDevices() {
+    func testExercises_Are_Limited_To_31_Elements_On_Phone_Devices() {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.oneRepMax.name, "Deadlift")
         XCTAssertEqual(sut.oneRepMax.exercises.count, 100)
         XCTAssertEqual(sut.exercises.count, 31)
     }
     
-    func testExercisesAreLimitedTo93ElementsOnPadDevices() {
+    func testExercises_Are_Limited_To_93_Elements_On_Pad_Devices() {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .pad)
         XCTAssertEqual(sut.oneRepMax.name, "Deadlift")
         XCTAssertEqual(sut.oneRepMax.exercises.count, 100)

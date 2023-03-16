@@ -47,6 +47,8 @@ extension DataStore: DataStoreInterface {
             }
             
             // Read data from our sample url
+            // Please note that we're reading the whole file into memory at once
+            // A more robust solution might be to read sequentially line by line
             let data = try Data(contentsOf: exercisesUrl)
             
             // Serialize data

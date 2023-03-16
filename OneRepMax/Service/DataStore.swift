@@ -38,7 +38,6 @@ extension DataStore: DataStoreInterface {
 #endif
     }
     
-    // If changed to a function that takes path url we can mock it (real, empty, invalid-url)
     var exercises: [Exercise] {
         get async throws {
             // Make url optional will help us test cached exercises

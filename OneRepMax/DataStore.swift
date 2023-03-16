@@ -10,33 +10,32 @@ class DataStore {
         case inputSerialization
     }
     
-    /// The bundle to use for loading data from
-    private let url: URL?
-    
     /// The parser that can map input String to output Exercise
     private let parser: ParserInterface
     
     init(
-        url: URL? = Bundle.main.sample,
         parser: ParserInterface
     ) {
-        self.url = url
         self.parser = parser
     }
 }
 
 extension DataStore: DataStoreInterface {
+    private var exercisesUrl: URL? {
+        Bundle.main.sample
+    }
+    
     // If changed to a function that takes path url we can mock it (real, empty, invalid-url)
     var exercises: [Exercise] {
         get async throws {
             // Make url optional will help us test cached exercises
-            guard let url
+            guard let exercisesUrl
             else {
                 throw DataError.invalidUrl
             }
             
             // Read data from our sample url
-            let data = try Data(contentsOf: url)
+            let data = try Data(contentsOf: exercisesUrl)
             
             // Serialize data
             guard let input = String(data: data, encoding: .utf8)

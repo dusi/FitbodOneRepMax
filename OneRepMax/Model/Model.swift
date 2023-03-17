@@ -21,6 +21,7 @@ struct OneRepMax: Identifiable {
     let id: UUID = UUID()
     let exercises: [Exercise]
     let name: String
+    let personalBestExercise: Exercise
     let lastExercise: Exercise
 }
 
@@ -35,10 +36,18 @@ extension Exercise {
         weight: 265
     )
     
+    static let best = Self(
+        date: Date(),
+        name: "Deadlift",
+        reps: 10,
+        sets: 1,
+        weight: 400
+    )
+    
     static func mock(name: String, date: Date, sets: Int, weight: Int) -> Self {
         Self(
             date: date,
-            name: "Deadlift",
+            name: name,
             reps: 10,
             sets: sets,
             weight: weight
@@ -50,7 +59,8 @@ extension OneRepMax {
     static let mock = Self(
         exercises: [.mock],
         name: "Deadlift",
-        lastExercise: Exercise.mock
+        personalBestExercise: .best,
+        lastExercise: .mock
     )
     
     static func mock(name: String, exercises: [Exercise]) -> Self {
@@ -59,6 +69,7 @@ extension OneRepMax {
             return Self(
                 exercises: [],
                 name: name,
+                personalBestExercise: .best,
                 lastExercise: .mock
             )
         }
@@ -66,6 +77,7 @@ extension OneRepMax {
         return Self(
             exercises: exercises,
             name: name,
+            personalBestExercise: .best,
             lastExercise: last
         )
     }

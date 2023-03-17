@@ -40,7 +40,7 @@ final class DataProviderTests: XCTestCase {
             Exercise(date: Date(timeIntervalSinceReferenceDate: 4), name: "Back Squat", reps: 10, sets: 1, weight: 45),
             Exercise(date: Date(timeIntervalSinceReferenceDate: 4), name: "Back Squat", reps: 4, sets: 1, weight: 260),
             Exercise(date: Date(timeIntervalSinceReferenceDate: 5), name: "Biceps Curl", reps: 8, sets: 1, weight: 35),
-            Exercise(date: Date(timeIntervalSinceReferenceDate: 5), name: "Biceps Curl", reps: 6, sets: 1, weight: 50),
+            Exercise(date: Date(timeIntervalSinceReferenceDate: 5), name: "Biceps Curl", reps: 6, sets: 1, weight: 80),
             Exercise(date: Date(timeIntervalSinceReferenceDate: 6), name: "Biceps Curl", reps: 8, sets: 1, weight: 20),
             Exercise(date: Date(timeIntervalSinceReferenceDate: 6), name: "Biceps Curl", reps: 8, sets: 1, weight: 30),
             Exercise(date: Date(timeIntervalSinceReferenceDate: 7), name: "Biceps Curl", reps: 8, sets: 1, weight: 35),
@@ -60,6 +60,7 @@ final class DataProviderTests: XCTestCase {
         XCTAssertEqual(oneRepMaxes[0].exercises[1].reps, 4)
         XCTAssertEqual(oneRepMaxes[0].exercises[1].weight, 260)
         XCTAssertEqual(oneRepMaxes[0].exercises[1].oneRepMax, 283.6363636363636)
+        XCTAssertEqual(oneRepMaxes[0].personalBestExercise.oneRepMax, 284.5161290322581)
         XCTAssertEqual(oneRepMaxes[0].lastExercise.oneRepMax, 283.6363636363636)
 
         XCTAssertEqual(oneRepMaxes[1].name, "Bench Press")
@@ -67,19 +68,21 @@ final class DataProviderTests: XCTestCase {
         XCTAssertEqual(oneRepMaxes[1].exercises[0].reps, 2)
         XCTAssertEqual(oneRepMaxes[1].exercises[0].weight, 225)
         XCTAssertEqual(oneRepMaxes[1].exercises[0].oneRepMax, 231.42857142857142)
+        XCTAssertEqual(oneRepMaxes[1].personalBestExercise.oneRepMax, 231.42857142857142)
         XCTAssertEqual(oneRepMaxes[1].lastExercise.oneRepMax, 231.42857142857142)
         
         XCTAssertEqual(oneRepMaxes[2].name, "Biceps Curl")
         XCTAssertEqual(oneRepMaxes[2].exercises.count, 3)
         XCTAssertEqual(oneRepMaxes[2].exercises[0].reps, 6)
-        XCTAssertEqual(oneRepMaxes[2].exercises[0].weight, 50)
-        XCTAssertEqual(oneRepMaxes[2].exercises[0].oneRepMax, 58.06451612903226)
+        XCTAssertEqual(oneRepMaxes[2].exercises[0].weight, 80)
+        XCTAssertEqual(oneRepMaxes[2].exercises[0].oneRepMax, 92.90322580645162)
         XCTAssertEqual(oneRepMaxes[2].exercises[1].reps, 8)
         XCTAssertEqual(oneRepMaxes[2].exercises[1].weight, 30)
         XCTAssertEqual(oneRepMaxes[2].exercises[1].oneRepMax, 37.241379310344826)
         XCTAssertEqual(oneRepMaxes[2].exercises[2].reps, 10)
         XCTAssertEqual(oneRepMaxes[2].exercises[2].weight, 50)
         XCTAssertEqual(oneRepMaxes[2].exercises[2].oneRepMax, 66.66666666666666)
+        XCTAssertEqual(oneRepMaxes[2].personalBestExercise.oneRepMax, 92.90322580645162)
         XCTAssertEqual(oneRepMaxes[2].lastExercise.oneRepMax, 66.66666666666666)
 
         XCTAssertEqual(oneRepMaxes[3].name, "Deadlift")
@@ -87,6 +90,7 @@ final class DataProviderTests: XCTestCase {
         XCTAssertEqual(oneRepMaxes[3].exercises[0].reps, 3)
         XCTAssertEqual(oneRepMaxes[3].exercises[0].weight, 315)
         XCTAssertEqual(oneRepMaxes[3].exercises[0].oneRepMax, 333.5294117647059)
+        XCTAssertEqual(oneRepMaxes[3].personalBestExercise.oneRepMax, 333.5294117647059)
         XCTAssertEqual(oneRepMaxes[3].lastExercise.oneRepMax, 333.5294117647059)
     }
 }

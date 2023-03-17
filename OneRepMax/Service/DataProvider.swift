@@ -54,6 +54,12 @@ extension DataProvider: DataProviderInterface {
                 // Sort all the maximum one rep maxes by date in an ascending order
                 let oneRepMaxExercisesSortedAscending = oneRepMaxExercises.values.elements.sorted { e1, e2 in e1.date < e2.date }
                 
+                // Get the personal best one rep max
+                guard let personalBestExercise = oneRepMaxExercisesSortedAscending.max(by: { e1, e2 in
+                    e1.oneRepMax < e2.oneRepMax
+                })
+                else { return nil }
+                
                 // Get the latest one rep max
                 guard let lastExercise = oneRepMaxExercisesSortedAscending.last
                 else { return nil }
@@ -62,6 +68,7 @@ extension DataProvider: DataProviderInterface {
                 return OneRepMax(
                     exercises: oneRepMaxExercisesSortedAscending,
                     name: name,
+                    personalBestExercise: personalBestExercise,
                     lastExercise: lastExercise
                 )
             }

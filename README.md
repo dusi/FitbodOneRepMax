@@ -15,7 +15,7 @@
 
 - The project utilizes [Swift Collections](https://www.swift.org/blog/swift-collections/) to group and order the data input
 
-|   |   |
+| iPhone | iPad |
 |---|---|
 | <img src="./docs/screenshot-phone-default.png" /> | <img src="./docs/screenshot-pad-default.png" /> |
 
@@ -33,13 +33,13 @@ My focus was to allow for extensive testability. Every dependency is injected as
 
 This was a first time I have used Swift Charts and it was a very interesting experience. They are very easy to implement and seem to support a vast variety of customization and visualization options. I wish it was slightly easier to support large data sets - either in form of scrolling or paging. I have initially attempted to scroll charts that had to show larger data ranges but I was not quite able to work with `GeometryReader` and set the right horizontal offset. This is why I'm limiting to only show past 31 days (or one month on iPhone devices) or 93 days (or three months on iPad devices) at a time. This decision was a trade-off, but I believe it still provides good enough user experience.
 
-|   |   |
+| iPhone | iPad |
 |---|---|
 | <img src="./docs/screenshot-phone-detail.png" /> | <img src="./docs/screenshot-pad-detail.png" /> |
 
 In addition to rendering the chart, users can also interact with it by tapping and dragging over it. This temporarily shows a ruler and currently selected date & one rep max value. Once the gesture is done it goes back to default state showing the latest one rep max.
 
-|   |   |
+| iPhone | iPad |
 |---|---|
 | <img src="./docs/screenshot-phone-selected.png" /> | <img src="./docs/screenshot-pad-selected.png" /> |
 

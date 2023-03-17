@@ -5,7 +5,7 @@ protocol DataStoreInterface {
     var exercises: [Exercise] { get async throws }
 }
 
-/// The live implementation of data source
+/// The data store is responsible for reading data from the disk
 class DataStore {
     enum DataError: Error {
         case invalidUrl

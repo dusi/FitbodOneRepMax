@@ -6,7 +6,7 @@ protocol DataProviderInterface {
     var oneRepMaxes: [OneRepMax] { get async throws }
 }
 
-/// The live implementation of data provider
+/// The data provider is responsible for sorting and ordering data
 struct DataProvider {
     private let dataStore: DataStoreInterface
     

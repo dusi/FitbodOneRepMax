@@ -76,8 +76,13 @@ extension OneRepMaxDetailModel {
         return maxValue + padding
     }
     
-    /// The selected exercise or the default (last) exercise used in the header
-    var headerExercise: Exercise {
+    /// The personal best exercise
+    var personalBestExercise: Exercise {
+        oneRepMax.personalBestExercise
+    }
+    
+    /// The most recent or selected exercise
+    var mostRecentOrSelectedExercise: Exercise {
         if let selectedExercise {
             return selectedExercise
         } else {
@@ -90,9 +95,14 @@ extension OneRepMaxDetailModel {
         DateFormatter.default
     }
     
+    /// A flag indicating that an exercise has been selected by user
+    var showsMostRecentExercise: Bool {
+        selectedExercise == nil
+    }
+    
     /// The foreground color used in the header
-    var headerForegroundColor: Color {
-        selectedExercise != nil ? Defaults.Style.selectionColor : .black
+    var footerForegroundColor: Color {
+        selectedExercise != nil ? Defaults.Style.selectionColor : .primary
     }
     
     /// The user gesture to interact with the chart
@@ -123,14 +133,14 @@ struct OneRepMaxDetail: View {
     }
     
     var body: some View {
-        VStack {
-            OneRepMaxHeader(
-                dateFormatter: self.model.dateFormatter,
-                exercise: self.model.headerExercise,
-                foregroundColor: self.model.headerForegroundColor
-            )
-            
-            GeometryReader { geometry in
+        GeometryReader { outerGeometry in
+            VStack {
+                // Header showing personal best one rep max
+                OneRepMaxHeader(
+                    dateFormatter: self.model.dateFormatter,
+                    exercise: self.model.personalBestExercise
+                )
+                
                 // The chart with historical one rep maxes
                 Chart {
                     ForEach(self.model.exercises) { exercise in
@@ -157,7 +167,7 @@ struct OneRepMaxDetail: View {
                             x: .value("Selected date", selectedExercise.date)
                         )
                         .foregroundStyle(OneRepMaxDetailModel.Defaults.Style.selectionColor)
-                     
+                        
                         PointMark(
                             x: .value("Selected date", selectedExercise.date),
                             y: .value("Selected exercise", selectedExercise)
@@ -168,17 +178,16 @@ struct OneRepMaxDetail: View {
                 }
                 // We want our y-axis to start closer to the min and max values (not from zero)
                 .chartYScale(domain: self.model.yAxisMinValue...self.model.yAxisMaxValue)
-                .frame(height: geometry.size.height * 0.5)
                 // Allow interactions with the chart
                 .chartOverlay { proxy in
-                    GeometryReader { geometry in
+                    GeometryReader { innerGeometry in
                         Rectangle()
                             .fill(.clear)
                             .contentShape(Rectangle())
                             .gesture(
                                 DragGesture()
                                     .onChanged { value in
-                                        guard let date = date(for: value.location, geometry: geometry, chart: proxy)
+                                        guard let date = date(for: value.location, geometry: innerGeometry, chart: proxy)
                                         else { return }
                                         self.model.chartGestureDidChange(with: date)
                                     }
@@ -187,16 +196,25 @@ struct OneRepMaxDetail: View {
                                     }
                             )
                             .onTapGesture { value in
-                                guard let date = date(for: value, geometry: geometry, chart: proxy)
+                                guard let date = date(for: value, geometry: innerGeometry, chart: proxy)
                                 else { return }
                                 self.model.chartGestureDidChange(with: date)
                             }
                     }
                 }
+                .frame(height: outerGeometry.size.height * 0.5)
+                
+                // Footer showing most recent or selected one rep max
+                OneRepMaxFooter(
+                    dateFormatter: self.model.dateFormatter,
+                    exercise: self.model.mostRecentOrSelectedExercise,
+                    foregroundColor: self.model.footerForegroundColor,
+                    showsMostRecentExercise: self.model.showsMostRecentExercise
+                )
             }
+            .padding()
+            .navigationTitle(self.model.oneRepMax.name)
         }
-        .padding()
-        .navigationTitle(self.model.oneRepMax.name)
     }
     
     private func date(for location: CGPoint, geometry: GeometryProxy, chart: ChartProxy) -> Date? {

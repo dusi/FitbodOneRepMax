@@ -21,6 +21,7 @@ final class OneRepMaxDetailModelTests: XCTestCase {
         mockOneRepMax = OneRepMax(
             exercises: mockExercises,
             name: "Deadlift",
+            personalBestExercise: .best,
             lastExercise: .mock
         )
     }
@@ -62,6 +63,39 @@ final class OneRepMaxDetailModelTests: XCTestCase {
     func testYAxisMaxValue() {
         let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax, userInterfaceIdiom: .phone)
         XCTAssertEqual(sut.yAxisMaxValue, 271.66666666666663)
+    }
+    
+    func testPersonalBestExercise() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        XCTAssertEqual(sut.personalBestExercise, .best)
+    }
+    
+    func testMostRecentOrSelectedExercise() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        XCTAssertNil(sut.selectedExercise)
+        XCTAssertEqual(sut.mostRecentOrSelectedExercise, sut.oneRepMax.lastExercise)
+        
+        let expectedExercise = Exercise.mock(name: "Deadlift", date: Date(), sets: 10, weight: 100)
+        
+        sut.selectedExercise = expectedExercise
+        XCTAssertNotNil(sut.selectedExercise)
+        XCTAssertEqual(sut.mostRecentOrSelectedExercise, expectedExercise)
+    }
+    
+    func testShowsMostRecentExercise() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        XCTAssertTrue(sut.showsMostRecentExercise)
+        
+        sut.selectedExercise = .mock
+        XCTAssertFalse(sut.showsMostRecentExercise)
+    }
+    
+    func testFooterForegroundColor() {
+        let sut = OneRepMaxDetailModel(oneRepMax: mockOneRepMax)
+        XCTAssertEqual(sut.footerForegroundColor, .primary)
+        
+        sut.selectedExercise = .mock
+        XCTAssertEqual(sut.footerForegroundColor, OneRepMaxDetailModel.Defaults.Style.selectionColor)
     }
     
     func testChartGestureDidChange() {

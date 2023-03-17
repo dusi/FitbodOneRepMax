@@ -31,7 +31,7 @@ My focus was to allow for extensive testability. Every dependency is injected as
 
 ### Charts
 
-This was a first time I have used Swift Charts and it was a very interesting experience. They are very easy to implement and seem to support a vast variety of customization and visualization options. I wish it was slightly easier to support large data sets - either in form of scrolling or paging. I have initially attempted to scroll charts that had to show larger data ranges but I was not quite able to work with `GeometryReader` and set the right horizontal offset. This is why I'm limiting to only show past 31 days (or one month on iPhone devices) or 93 days (or three months on iPad devices) at a time. This decision was a trade-off, but I believe it still provides good enough user experience.
+This was a first time I have used Swift Charts and it was a very interesting experience. They are very easy to implement and seem to support a vast variety of customization and visualization options. I wish it was slightly easier to support large data sets - either in form of scrolling or paging. I have initially attempted to scroll charts that had to show larger data ranges but I was not quite able to work with `GeometryReader` and set the right horizontal offset. This is why I'm limiting to only show past 31 days (or one month on iPhone devices) or 93 days (or three months on iPad devices) at a time. I made this decision to prevent from over-populating the chart in case there were too many data points. A user who worked out each day in the past 31/93 days should be able to see 31/93 one rep maxes on the chart. If they didn't exercise every day they will be able to see past 31/93 one rep maxes potentially going further in the past.
 
 | iPhone | iPad |
 |---|---|
@@ -70,6 +70,8 @@ For debugging purposes, the app provides an easy way to change the data source d
 ## Trade-offs
 
 - The project uses `OrderedCollections` from [Swift Collections](https://www.swift.org/blog/swift-collections/) in order to manipulate data in a performant way.
+
+- The chart limits data to the 31 latest inputs (on iPhone devices) or 93 (on iPad devices). This decision should provide good enough user experience without over-populating the graph. I toyed with the idea of using `stride` with a `step` value of 31/93 for all exercises but it seemed less relevant seeing very old records in contrast to showing the latest.
 
 - Reading the file with historical data does not happen sequentially. I have tested this approach for small files and large input files (up to 100k+ lines) and the performance (memory footprint) was manageable. For anything larger it might be worth considering not reading the whole file into memory at once, but rather reading line by line.
 

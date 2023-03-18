@@ -24,7 +24,7 @@ struct OneRepMaxFooter: View {
             VStack(alignment: .leading) {
                 Text(showsMostRecentExercise ? "Most recent": "On Date")
                     .font(.title2)
-                Text(self.dateFormatter.string(from: self.exercise.date))
+                Text(self.exercise.date, formatter: self.dateFormatter)
                     .font(.subheadline)
             }
             .foregroundColor(self.foregroundColor)

@@ -18,7 +18,7 @@ struct OneRepMaxHeader: View {
             VStack(alignment: .leading) {
                 Text("Personal best")
                     .font(.title2)
-                Text(self.dateFormatter.string(from: self.exercise.date))
+                Text(self.exercise.date, formatter: self.dateFormatter)
                     .font(.subheadline)
             }
             Spacer()

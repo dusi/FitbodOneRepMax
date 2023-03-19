@@ -22,7 +22,7 @@ struct OneRepMaxHeader: View {
                     .font(.subheadline)
             }
             Spacer()
-            Text(String(format: "%.1f", self.exercise.oneRepMax))
+            Text("\(self.exercise.oneRepMax, specifier: "%.1f")")
                 .font(.title)
         }
     }

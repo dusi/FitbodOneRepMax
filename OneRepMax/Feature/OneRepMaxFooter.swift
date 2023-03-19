@@ -29,7 +29,7 @@ struct OneRepMaxFooter: View {
             }
             .foregroundColor(self.foregroundColor)
             Spacer()
-            Text(String(format: "%.1f", self.exercise.oneRepMax))
+            Text("\(self.exercise.oneRepMax, specifier: "%.1f")")
                 .font(.title)
                 .foregroundColor(self.foregroundColor)
         }
